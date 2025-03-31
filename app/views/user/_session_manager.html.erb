@@ -1,0 +1,15 @@
+<li class="nav-item dropdown">
+  <% if user_signed_in? %>
+    <%= link_to current_user.name, "#", class: "nav-link dropdown-toggle", data: { bs_toggle: "dropdown" }, role: "button" %>
+    <ul class="dropdown-menu dropdown-menu-end">
+      <li><%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %></li>
+      <li><%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+    </ul>
+  <% else %>
+    <%= link_to "Account", "#", class: "nav-link dropdown-toggle", data: { bs_toggle: "dropdown" }, role: "button" %>
+    <ul class="dropdown-menu dropdown-menu-end">
+      <li><%= link_to "Sign Up", new_user_registration_path, class: "dropdown-item" %></li>
+      <li><%= link_to "Sign In", new_user_session_path, class: "dropdown-item" %></li>
+    </ul>
+  <% end %>
+</li>
